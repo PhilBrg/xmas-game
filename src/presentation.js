@@ -1,21 +1,23 @@
-// Import React
-import React from 'react';
-import styled from 'react-emotion'
 import { XmasGame } from './assets/xmas'
-import { XmasGameIpsum } from './assets/xmasIpsum'
+
+// import slides
 import Answer from './slides/answers/answer'
 import Multiples from './slides/questions/multiples'
 import Single from './slides/questions/single'
 import Rules from './slides/rules'
-import { connect } from 'react-redux'
+import Intro from './slides/intro'
+import End from './slides/end'
+import Menu from './slides/menu'
+
 import { gameActions } from './redux/actions'
 import store from './redux/store'
 
-// Import Spectacle Core tags
-import { Appear, Deck, Heading, Slide, Text } from 'spectacle';
+import React from 'react'
+import { connect } from 'react-redux'
+import { Appear, Deck, Heading, Slide, Text } from 'spectacle'
+import createTheme from 'spectacle/lib/themes/default'
 
-// Import theme
-import createTheme from 'spectacle/lib/themes/default';
+
 
 // Require CSS
 require('normalize.css');
@@ -33,30 +35,18 @@ const theme = createTheme(
     primary: 'Montserrat',
     secondary: 'Helvetica',
   }
-);
+)
 
 class Presentation extends React.Component {
   constructor() {
     super()
-
-    this.updateGameStep = this.updateGameStep.bind(this)
-    this.updateCurrentGameName = this.updateCurrentGameName.bind(this)
-    this.updateScoreTeam1 = this.updateScoreTeam1.bind(this)
-    this.updateScoreTeam2 = this.updateScoreTeam2.bind(this)
 
     this.state = {
       games: XmasGame.games.filter(game => game.weight > -1),
       xmas: XmasGame,
     }
 
-    store.subscribe(() => {
-      this.setState({
-        score: store.getState().score
-      });
-      this.setState({
-        step: store.getState().step
-      });
-    });
+    store.subscribe(() => this.setState({ score: store.getState().score, step: store.getState().step }))
   }
 
   componentDidMount() {
@@ -80,35 +70,20 @@ class Presentation extends React.Component {
     }
   }
 
-  updateGameStep(index) {
+  updateGameStep = (index) => {
     this.props.updateGameStep({index})
   }
 
-  updateCurrentGameName(game) {
+  updateCurrentGameName = (game) => {
     this.props.updateCurrentGameName({game})
   }
 
-  updateScoreTeam1(score) {
+  updateScoreTeam1 = (score) => {
     this.props.updateScoreTeam1(score)
   }
 
-  updateScoreTeam2(score) {
+  updateScoreTeam2 = (score) => {
     this.props.updateScoreTeam2(score)
-  }
-
-  renderIntro() {
-    const xmas = this.state.xmas
-
-    return (
-      <Slide transition={['zoom']} bgColor="lightRed">
-        <Heading size={1} fit caps lineHeight={1} textColor="red">
-          {xmas.title}
-        </Heading>
-        <Text margin="10px 0 0" textColor="white" size={1} fit bold>
-          Crée de toute pièce par {xmas.created_by}
-        </Text>
-      </Slide>
-    )
   }
   renderMenu() {
     const games = this.state.games
@@ -177,17 +152,9 @@ class Presentation extends React.Component {
     return (slides)
   }
 
-  renderEndGame() {
-    return (
-      <Slide transition={["zoom"]} bgColor="black">
-          <Text margin="10px 0 0" textColor="white" size={1} fit bold>
-          FIN
-          </Text>
-      </Slide>
-    )
-  }
-
   render() {
+    const { title, created_by, games } = this.state.xmas
+
     return (
       <Deck
         transition={['zoom', 'slide']}
@@ -195,10 +162,10 @@ class Presentation extends React.Component {
         theme={theme}
         ref={this.deck}
       >
-        {this.renderIntro()}
-        {this.renderMenu()}
+        {Intro({ title: title, created_by: created_by })}
+        {Menu({ games: games })}
         {this.renderGame()}
-        {this.renderEndGame()}
+        {End()}
 
       </Deck>
     );

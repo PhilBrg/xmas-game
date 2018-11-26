@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 import styled from 'react-emotion'
-import { Text } from "spectacle";
+import { Text } from 'spectacle'
 
 const headerCreator = ({ currentGame, score }) => (
   <StyledHeaderContainer>
@@ -14,7 +14,7 @@ const headerCreator = ({ currentGame, score }) => (
       equipe lutin : {score.team_2}
     </StyledCurrentScore>
   </StyledHeaderContainer>
-);
+)
 
 const StyledHeaderContainer = styled('div')`
   display: flex;
