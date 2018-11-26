@@ -1,0 +1,20 @@
+{
+  "name": "xmas",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "babel-plugin-emotion": "^9.2.11",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-emotion": "^9.2.12",
+    "redux-devtools-extension": "^2.13.5",
+    "spectacle-image-slide": "^1.0.1",
+    "spectacle-scripts": "2.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
