@@ -85,25 +85,6 @@ class Presentation extends React.Component {
   updateScoreTeam2 = (score) => {
     this.props.updateScoreTeam2(score)
   }
-  renderMenu() {
-    const games = this.state.games
-
-    return (
-      <Slide transition={['fade']} bgColor="red">
-        <Heading size={6} textColor="white" caps>
-          Menu
-        </Heading>
-        {games.map((game, index) => (
-          <Appear key={index} fid={index}>
-            <Heading size={3} textColor="lightGreen">
-              {game.name}
-            </Heading>
-          </Appear>
-          ))
-        }
-      </Slide>
-    )
-  }
 
   renderGame() {
     const games = this.state.games
@@ -162,6 +143,7 @@ class Presentation extends React.Component {
         theme={theme}
         ref={this.deck}
       >
+        <Slide transition={['fade']} bgColor="black" />
         {Intro({ title: title, created_by: created_by })}
         {Menu({ games: games })}
         {this.renderGame()}
