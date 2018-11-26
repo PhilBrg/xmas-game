@@ -14,7 +14,7 @@ import store from './redux/store'
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { Appear, Deck, Heading, Slide, Text } from 'spectacle'
+import { Deck } from 'spectacle'
 import createTheme from 'spectacle/lib/themes/default'
 
 
@@ -143,7 +143,6 @@ class Presentation extends React.Component {
         theme={theme}
         ref={this.deck}
       >
-        <Slide transition={['fade']} bgColor="black" />
         {Intro({ title: title, created_by: created_by })}
         {Menu({ games: games })}
         {this.renderGame()}
