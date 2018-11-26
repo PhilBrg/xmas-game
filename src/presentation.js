@@ -1,4 +1,4 @@
-import { XmasGame } from './assets/xmas'
+import { XmasGame } from './assets/data/xmas'
 
 // import slides
 import Answer from './slides/answers/answer'
