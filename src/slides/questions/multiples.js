@@ -1,9 +1,10 @@
 import React from 'react'
+import styled from 'react-emotion'
 import { Appear, Heading, Text, Slide } from 'spectacle'
 import Header from '../../components/header'
 
 const multiplesCreator = ({ question, choices, fstep, currentGame, score }) => (
-  <Slide transition={["zoom"]} bgColor="lightGreen" align="center top" onActive={fstep}>
+  <Slide transition={["fade"]} bgColor="lightGreen" padding="0px" align="center top" onActive={fstep}>
     <Header currentGame={currentGame} score={score}/>
     <Heading size={6} textColor="red" caps>
       {question}
@@ -18,5 +19,9 @@ const multiplesCreator = ({ question, choices, fstep, currentGame, score }) => (
     }
   </Slide>
 );
+
+const StyledSlide = styled(Slide)`
+  padding: 0px !important;
+`
 
 export default multiplesCreator

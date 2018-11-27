@@ -1,18 +1,28 @@
 import React from 'react'
 import styled from 'react-emotion'
-import { Text } from 'spectacle'
+import { Text, Image } from 'spectacle'
+import lutin from '../assets/img/lutin.png'
+import reindeer from '../assets/img/rennes.png'
 
 const headerCreator = ({ currentGame, score }) => (
   <StyledHeaderContainer>
-    <StyledCurrentScore size={1}>
-      equipe lutin : {score.team_1}
-    </StyledCurrentScore>
+    <StyledContainerTeamOne>
+      <StyledImage src={reindeer}/>
+      <StyledCurrentScore size={1}>
+        {score.team_1}
+      </StyledCurrentScore>
+    </StyledContainerTeamOne>
+    
     <StyledCurrentGame size={3}>
       Jeu en cours : {currentGame}
     </StyledCurrentGame>
-    <StyledCurrentScore size={4}>
-      equipe lutin : {score.team_2}
-    </StyledCurrentScore>
+
+    <StyledContainerTeamTwo>
+      <StyledCurrentScore size={4}>
+        {score.team_2}
+      </StyledCurrentScore>
+      <StyledImage src={reindeer}/>
+    </StyledContainerTeamTwo>
   </StyledHeaderContainer>
 )
 
@@ -34,6 +44,22 @@ const StyledCurrentGame = styled(Text)`
 const StyledCurrentScore = styled(Text)`
   color: #ffffff;
   font-size: 16px;
+`
+
+const StyledImage = styled(Image)`
+  max-height: 150px;
+`
+
+const StyledContainerTeamOne = styled('div')`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+`
+
+const StyledContainerTeamTwo = styled('div')`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 `
 
 export default headerCreator

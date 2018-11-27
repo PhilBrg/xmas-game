@@ -138,7 +138,7 @@ class Presentation extends React.Component {
 
     return (
       <Deck
-        transition={['zoom', 'slide']}
+        transition={['fade', 'slide']}
         transitionDuration={500}
         theme={theme}
         ref={this.deck}
