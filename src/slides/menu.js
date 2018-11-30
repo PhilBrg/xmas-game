@@ -1,28 +1,32 @@
 import React from 'react'
-import Sound from 'react-sound'
-import inception from '../assets/sound/inception.mp3'
-import { Slide, Heading, Appear } from 'spectacle'
+import styled from 'react-emotion'
+import { Slide, Heading, Text, Appear } from 'spectacle'
 
 const menuCreator = ({ games }) => (
-    <Slide transition={['fade']} bgColor="red">
-        <Heading size={6} textColor="white" caps>
+    <Slide transition={['fade']} bgColor="red40">
+        <StyledMenu textColor="white" caps>
           Menu
-        </Heading>
+        </StyledMenu>
         {games.map((game, index) => (
             <Appear key={index} fid={index}>
-              <div>
-                <Sound 
-                  url={inception}
-                  playStatus={Sound.status.PLAYING}
-                />
-                <Heading size={3} textColor="lightGreen">
-                  {game.name}
-                </Heading>
-              </div>
+              <StyledText size={3} textColor="yellow">
+                {game.name}
+              </StyledText>
             </Appear>
           ))
         }
       </Slide>
-);
+)
+
+const StyledMenu = styled(Heading)`
+  font-size: 33px;
+  margin-bottom: 45px;
+  letter-spacing: 1px;
+`
+
+const StyledText = styled(Text)`
+  font-size: 50px;
+  padding-bottom: 20px;
+`
 
 export default menuCreator

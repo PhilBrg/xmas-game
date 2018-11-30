@@ -1,4 +1,4 @@
-import { XmasGame } from './assets/data/xmas'
+import { XmasGameIpsum } from './assets/data/xmasIpsum'
 
 // import slides
 import Answer from './slides/answers/answer'
@@ -17,6 +17,10 @@ import { connect } from 'react-redux'
 import { Deck } from 'spectacle'
 import createTheme from 'spectacle/lib/themes/default'
 
+// assets
+import eddy_malou from './assets/sound/eddy-malou.mp3'
+import inception from './assets/sound/inception.mp3'
+import navi from './assets/sound/navi.wav'
 
 
 // Require CSS
@@ -24,12 +28,14 @@ require('normalize.css');
 
 const theme = createTheme(
   {
-    white: '#ffffff',
     black: '#1F2022',
-    lightRed: '#ff7878',
-    red: '#ff0000',
-    lightGreen: '#74d680',
-    green: '#378b29',
+    green20: '#74d680',
+    green40: '#02ad57',
+    green60: '#02934B',
+    green80: '#0c7D21',
+    red40: '#ef3D46',
+    white: '#ffffff',
+    yellow: '#fcb12a',
   },
   {
     primary: 'Montserrat',
@@ -42,8 +48,8 @@ class Presentation extends React.Component {
     super()
 
     this.state = {
-      games: XmasGame.games.filter(game => game.weight > -1),
-      xmas: XmasGame,
+      games: XmasGameIpsum.games.filter(game => game.weight > -1),
+      xmas: XmasGameIpsum,
     }
 
     store.subscribe(() => this.setState({ score: store.getState().score, step: store.getState().step }))
@@ -92,8 +98,10 @@ class Presentation extends React.Component {
 
     games.map((game) => {
       slides.push(Rules({
-                          rules: game.rules,
+                          currentGame: this.props.step.currentGameName,
                           fname: () => this.props.updateCurrentGameName({game}),
+                          rules: game.rules,
+                          score: this.props.score
                         })
                   )
       return game.questions.map((question, index) => {

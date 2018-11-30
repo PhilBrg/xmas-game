@@ -1,0 +1,5 @@
+--> display question
+--> display pictures
+--> manage sound in a better way (soundboard?)
+--> create images
+--> push png to github (nono)

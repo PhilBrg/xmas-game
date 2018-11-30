@@ -1,22 +1,29 @@
 import React from 'react'
-import Sound from 'react-sound'
-import navi from '../assets/sound/navi.wav'
+import styled from 'react-emotion'
+import Header from '../components/header'
 import { Slide, Text, Appear } from 'spectacle'
 
-const rulesCreator = ({ rules, fname }) => (
-    <Slide transition={["zoom"]} bgColor="green" onActive={fname}>
-      <Sound 
-        url={navi}
-        playStatus={Sound.status.PLAYING}
+const rulesCreator = ({ currentGame, fname, rules, score }) => (
+    <Slide transition={["zoom"]} bgColor="green40" align="center top" onActive={fname}>
+      <Header 
+        currentGame={currentGame}
+        score={score}
       />
       {rules.map((rule, index) => (
         <Appear key={index} fid={index}>
-          <Text margin="10px 0 0" textColor="lightRed" size={1} fit bold>
+          <StyledRule>
             {rule}
-          </Text>
+          </StyledRule>
         </Appear>
       ))}
     </Slide>
 )
+
+const StyledRule = styled(Text)`
+  color: #ffffff;
+  font-size: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`
 
 export default rulesCreator

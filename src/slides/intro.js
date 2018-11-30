@@ -2,7 +2,7 @@ import React from 'react'
 import { Heading, Slide, Text } from 'spectacle'
 
 const introCreator = ({ title, created_by }) => (
-    <Slide transition={['zoom']} bgColor="lightRed">
+    <Slide transition={['zoom']} bgColor="red40">
     <Heading size={1} fit caps lineHeight={1} textColor="red">
       {title}
     </Heading>

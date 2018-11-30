@@ -1,24 +1,24 @@
 import React from 'react'
 import styled from 'react-emotion'
 import { Text, Image } from 'spectacle'
-import lutin from '../assets/img/lutin.png'
-import reindeer from '../assets/img/rennes.png'
+import dwarf from '../assets/img/dwarf.png'
+import reindeer from '../assets/img/reindeer.png'
 
 const headerCreator = ({ currentGame, score }) => (
   <StyledHeaderContainer>
     <StyledContainerTeamOne>
-      <StyledImage src={reindeer}/>
-      <StyledCurrentScore size={1}>
+      <StyledImage src={dwarf}/>
+      <StyledCurrentScore>
         {score.team_1}
       </StyledCurrentScore>
     </StyledContainerTeamOne>
     
     <StyledCurrentGame size={3}>
-      Jeu en cours : {currentGame}
+        {currentGame}
     </StyledCurrentGame>
 
     <StyledContainerTeamTwo>
-      <StyledCurrentScore size={4}>
+      <StyledCurrentScore>
         {score.team_2}
       </StyledCurrentScore>
       <StyledImage src={reindeer}/>
@@ -38,16 +38,26 @@ const StyledHeaderContainer = styled('div')`
 
 const StyledCurrentGame = styled(Text)`
   color: #ffffff;
-  font-size: 16px;
+  font-size: 25px;
+  width: 200px;
+  margin: 0px;
+  position: fixed;
+  top: 12%;
+  left: 39%;
 `
 
 const StyledCurrentScore = styled(Text)`
   color: #ffffff;
-  font-size: 16px;
+  font-size: 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+  vertical-align: middle;
+  padding-top: 25px;
 `
 
 const StyledImage = styled(Image)`
-  max-height: 150px;
+  height: 100px;
+  width: 100px;
 `
 
 const StyledContainerTeamOne = styled('div')`

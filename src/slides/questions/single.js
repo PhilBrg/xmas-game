@@ -5,18 +5,17 @@ import Header from '../../components/header'
 
 
 const singleCreator = ({ question, fstep, currentGame, score }) => (
-  <StyledSlide transition={["fade"]} bgColor="lightGreen" padding="0px" align="center top" onActive={fstep}>
+  <Slide transition={["slide"]} bgColor="green20" padding="0px" align="center top" onActive={fstep}>
     <Header currentGame={currentGame} score={score}/>
-    <Text size={6} textColor="red" caps>
+    <StyledQuestion>
       {question}
-    </Text>
-  </StyledSlide>
-);
+    </StyledQuestion>
+  </Slide>
+)
 
-const StyledSlide = styled(Slide)`
-  div > {
-    padding: none! important;
-  }
+const StyledQuestion = styled(Text)`
+  color: #0c7D21;
+  font-size: 50px;
 `
 
 export default singleCreator
