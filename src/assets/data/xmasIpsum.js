@@ -40,7 +40,7 @@ export const XmasGameIpsum = {
       },
       {
         "name": "Questions 2",
-        "__typename": "_questions_2",
+        "__typename": "salt_or_pepper",
         "rules": ["5 questions par équipe", "1 point par réponse juste"],
         "buzzer": false,
         "weight": 70,
@@ -66,7 +66,7 @@ export const XmasGameIpsum = {
       },
       {
         "name": "Questions 3",
-        "__typename": "_questions_3",
+        "__typename": "bet",
         "rules": ["5 questions par équipe", "1 point par réponse juste"],
         "buzzer": false,
         "weight": 80,
@@ -92,7 +92,7 @@ export const XmasGameIpsum = {
       },
       {
         "name": "Questions 4",
-        "__typename": "_questions_4",
+        "__typename": "bill",
         "rules": ["5 questions par équipe", "1 point par réponse juste"],
         "buzzer": false,
         "weight": 90,
@@ -118,7 +118,7 @@ export const XmasGameIpsum = {
       },
       {
         "name": "Questions 5",
-        "__typename": "_questions_5",
+        "__typename": "turkey_of_the_dead",
         "rules": ["5 questions par équipe", "1 point par réponse juste"],
         "buzzer": false,
         "weight": 90,

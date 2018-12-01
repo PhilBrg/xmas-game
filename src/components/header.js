@@ -1,27 +1,26 @@
 import React from 'react'
 import styled from 'react-emotion'
 import { Text, Image } from 'spectacle'
+import { imgMapping } from '../tools/imgMapping'
 import dwarf from '../assets/img/dwarf.png'
 import reindeer from '../assets/img/reindeer.png'
 
-const headerCreator = ({ currentGame, score }) => (
+const headerCreator = ({ currentGame, currentGameType, score }) => (
   <StyledHeaderContainer>
     <StyledContainerTeamOne>
-      <StyledImage src={dwarf}/>
+      <StyledImageTeam src={dwarf}/>
       <StyledCurrentScore>
         {score.team_1}
       </StyledCurrentScore>
     </StyledContainerTeamOne>
     
-    <StyledCurrentGame size={3}>
-        {currentGame}
-    </StyledCurrentGame>
+    <StyledImageCurrentGame src={imgMapping[currentGameType]} />
 
     <StyledContainerTeamTwo>
       <StyledCurrentScore>
         {score.team_2}
       </StyledCurrentScore>
-      <StyledImage src={reindeer}/>
+      <StyledImageTeam src={reindeer}/>
     </StyledContainerTeamTwo>
   </StyledHeaderContainer>
 )
@@ -42,8 +41,8 @@ const StyledCurrentGame = styled(Text)`
   width: 200px;
   margin: 0px;
   position: fixed;
-  top: 12%;
-  left: 39%;
+  top: 2%;
+  left: 40%;
 `
 
 const StyledCurrentScore = styled(Text)`
@@ -55,9 +54,17 @@ const StyledCurrentScore = styled(Text)`
   padding-top: 25px;
 `
 
-const StyledImage = styled(Image)`
+const StyledImageTeam = styled(Image)`
   height: 100px;
   width: 100px;
+`
+
+const StyledImageCurrentGame= styled(Image)`
+  height: 100px;
+  width: 100px;
+  position: fixed;
+  top: 5%;
+  left: 44%;
 `
 
 const StyledContainerTeamOne = styled('div')`

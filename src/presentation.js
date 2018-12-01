@@ -97,8 +97,10 @@ class Presentation extends React.Component {
     const slides = []
 
     games.map((game) => {
+      console.log('Step', this.props.step)
       slides.push(Rules({
                           currentGame: this.props.step.currentGameName,
+                          currentGameType: this.props.step.currentGame,
                           fname: () => this.props.updateCurrentGameName({game}),
                           rules: game.rules,
                           score: this.props.score
@@ -111,12 +113,14 @@ class Presentation extends React.Component {
                                   choices: question.choices,
                                   fstep: () => this.props.updateGameStep({index}),
                                   currentGame: this.props.step.currentGameName,
+                                  currentGameType: this.props.step.currentGame,
                                   score: this.props.score
                                 })
                       )
           slides.push(Answer({
                               answer: question.answer,
                               currentGame: this.props.step.currentGameName,
+                              currentGameType: this.props.step.currentGame,
                               score: this.props.score
                             })
                       )
@@ -125,12 +129,14 @@ class Presentation extends React.Component {
                               question: question.name,
                               fstep: () => this.props.updateGameStep({index}),
                               currentGame: this.props.step.currentGameName,
+                              currentGameType: this.props.step.currentGame,
                               score: this.props.score
                             })
                       )
           slides.push(Answer({
                               answer: question.answer,
                               currentGame: this.props.step.currentGameName,
+                              currentGameType: this.props.step.currentGame,
                               score: this.props.score
                             })
                       )

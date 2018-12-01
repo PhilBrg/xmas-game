@@ -3,10 +3,11 @@ import styled from 'react-emotion'
 import Header from '../components/header'
 import { Slide, Text, Appear } from 'spectacle'
 
-const rulesCreator = ({ currentGame, fname, rules, score }) => (
+const rulesCreator = ({ currentGame, currentGameType, fname, rules, score }) => (
     <Slide transition={["zoom"]} bgColor="green40" align="center top" onActive={fname}>
       <Header 
         currentGame={currentGame}
+        currentGameType={currentGameType}
         score={score}
       />
       {rules.map((rule, index) => (

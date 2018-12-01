@@ -3,7 +3,7 @@ import { Slide, Text } from 'spectacle'
 import styled from 'react-emotion'
 import Header from '../../components/header'
 
-const answerCreator = ({ answer, currentGame, score }) => (
+const answerCreator = ({ answer, currentGame, currentGameType, score }) => (
     <Slide 
       transition={["fade"]}
       align="center top" 
@@ -12,6 +12,7 @@ const answerCreator = ({ answer, currentGame, score }) => (
     >
       <Header 
         currentGame={currentGame}
+        currentGameType={currentGameType}
         score={score}
       />
       <Text 
