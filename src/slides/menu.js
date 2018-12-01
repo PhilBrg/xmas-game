@@ -9,7 +9,7 @@ const menuCreator = ({ games }) => (
         </StyledMenu>
         {games.map((game, index) => (
             <Appear key={index} fid={index}>
-              <StyledText size={3} textColor="yellow">
+              <StyledText textColor="yellow">
                 {game.name}
               </StyledText>
             </Appear>

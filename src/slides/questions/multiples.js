@@ -4,24 +4,36 @@ import { Appear, Heading, Text, Slide } from 'spectacle'
 import Header from '../../components/header'
 
 const multiplesCreator = ({ question, choices, fstep, currentGame, currentGameType, score }) => (
-  <Slide transition={["fade"]} bgColor="lightGreen" padding="0px" align="center top" onActive={fstep}>
+  <Slide 
+    transition={["fade"]} 
+    bgColor="green20"
+    onActive={fstep}>
     <Header currentGame={currentGame} currentGameType={currentGameType} score={score}/>
-    <Heading size={6} textColor="red" caps>
+    <StyledQuestion textColor="white">
       {question}
-    </Heading>
+    </StyledQuestion>
     {choices.map((choice, index) => (
       <Appear key={index} fid={index}>
-        <Text margin="10px 0 0" textColor="red" size={3} bold>
+        <StyledText>
           {choice}
-        </Text>
+        </StyledText>
       </Appear>
       ))
     }
   </Slide>
-);
+)
 
-const StyledSlide = styled(Slide)`
-  padding: 0px !important;
+const StyledQuestion = styled(Heading)`
+  font-size: 33px;
+  position: absolute;
+  top: 30%;
 `
+
+const StyledText = styled(Text)`
+  font-size: 50px;
+  color: #0c7D21;
+  padding-bottom: 20px;
+`
+
 
 export default multiplesCreator

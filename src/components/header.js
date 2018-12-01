@@ -35,16 +35,6 @@ const StyledHeaderContainer = styled('div')`
   top:0;
 `
 
-const StyledCurrentGame = styled(Text)`
-  color: #ffffff;
-  font-size: 25px;
-  width: 200px;
-  margin: 0px;
-  position: fixed;
-  top: 2%;
-  left: 40%;
-`
-
 const StyledCurrentScore = styled(Text)`
   color: #ffffff;
   font-size: 50px;
