@@ -5,8 +5,18 @@ import Header from '../../components/header'
 
 
 const singleCreator = ({ question, fstep, currentGame, currentGameType, score }) => (
-  <Slide transition={["fade"]} bgColor="green20" padding="0px" align="center top" onActive={fstep}>
-    <Header currentGame={currentGame} currentGameType={currentGameType} score={score}/>
+  <Slide 
+    transition={["fade"]} 
+    bgColor="green20" 
+    padding="0px" 
+    align="center top" 
+    onActive={fstep}
+  >
+    <Header 
+      currentGame={currentGame} 
+      currentGameType={currentGameType} 
+      score={score}
+    />
     <StyledQuestion>
       {question}
     </StyledQuestion>

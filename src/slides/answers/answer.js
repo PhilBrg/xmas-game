@@ -15,16 +15,15 @@ const answerCreator = ({ answer, currentGame, currentGameType, score }) => (
         currentGameType={currentGameType}
         score={score}
       />
-      <Text 
-        margin="10px 0 0"
-        textColor="green40"
-        size={1}
-        fit
-        bold
-      >
+      <StyledAnswer>
         {answer}
-      </Text>
+      </StyledAnswer>
     </Slide>
 )
+
+const StyledAnswer = styled(Text)`
+  color: #0c7D21;
+  font-size: 50px;
+`
 
 export default answerCreator

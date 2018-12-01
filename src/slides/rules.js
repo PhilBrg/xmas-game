@@ -4,7 +4,12 @@ import Header from '../components/header'
 import { Slide, Text, Appear } from 'spectacle'
 
 const rulesCreator = ({ currentGame, currentGameType, fname, rules, score }) => (
-    <Slide transition={["zoom"]} bgColor="green40" align="center top" onActive={fname}>
+    <Slide 
+      transition={["fade"]} 
+      bgColor="green40" 
+      align="center top" 
+      onActive={fname}
+    >
       <Header 
         currentGame={currentGame}
         currentGameType={currentGameType}
