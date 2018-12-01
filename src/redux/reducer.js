@@ -7,10 +7,16 @@ const initialState = {
       currentGameName: null,
       currentQuestion: 0,
     },
-    score: {
-      team_1: 0,
-      team_2: 0,
-    }
+    scores: [
+      {
+        id: '1',
+        count: 0
+      },
+      {
+        id: '2',
+        count: 0
+      }
+    ]
 
 }
 
@@ -31,36 +37,32 @@ const updateCurrentGameName = (state, { payload }) => ({
   }
 })
 
-const ScoreTeam1 = (state, { payload }) => ({
-  ...state,
-  score: {
-    ...state.score,
-    team_1: state.score.team_1 + payload.score,
-  }
+const scoreTeam = (state, { payload }) => ({
+    ...state,
+    scores: state.scores.map(score => {
+      if (score.id === payload.id) {
+        return {
+          ...state.score,
+          id: payload.id,
+          count: score.count + payload.score
+        }
+      }
+      return score
+    })
 })
 
-const ScoreTeam2 = (state, { payload }) => ({
+const unScoreTeam = (state, { payload }) => ({
   ...state,
-  score: {
-    ...state.score,
-    team_2: state.score.team_2 + payload.score,
-  }
-})
-
-const UnScoreTeam1 = (state) => ({
-  ...state,
-  score: {
-    ...state.score,
-    team_1: state.score.team_1 - 1,
-  }
-})
-
-const UnScoreTeam2 = (state) => ({
-  ...state,
-  score: {
-    ...state.score,
-    team_2: state.score.team_2 - 1,
-  }
+  scores: state.scores.map(score => {
+    if (score.id === payload.id) {
+      return {
+        ...state.score,
+        id: payload.id,
+        count: score.count - 1
+      }
+    }
+    return score
+  })
 })
 
 
@@ -68,10 +70,8 @@ const UnScoreTeam2 = (state) => ({
 const reducer = {
   [types.UPDATE_GAME_STEP]: updateGameStep,
   [types.UPDATE_CURRENT_GAME_NAME]: updateCurrentGameName,
-  [types.SCORE_TEAM_1]: ScoreTeam1,
-  [types.SCORE_TEAM_2]: ScoreTeam2,
-  [types.UNSCORE_TEAM_1]: UnScoreTeam1,
-  [types.UNSCORE_TEAM_2]: UnScoreTeam2
+  [types.SCORE_TEAM]: scoreTeam,
+  [types.UNSCORE_TEAM]: unScoreTeam,
 }
 
 export default handleActions(reducer, initialState)

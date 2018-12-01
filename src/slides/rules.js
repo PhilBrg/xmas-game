@@ -3,7 +3,7 @@ import styled from 'react-emotion'
 import Header from '../components/header'
 import { Slide, Text, Appear } from 'spectacle'
 
-const rulesCreator = ({ currentGame, currentGameType, fname, rules, score }) => (
+const rulesCreator = ({ currentGame, currentGameType, fname, rules, scores }) => (
     <Slide 
       transition={["fade"]} 
       bgColor="green40" 
@@ -14,7 +14,7 @@ const rulesCreator = ({ currentGame, currentGameType, fname, rules, score }) => 
       <Header 
         currentGame={currentGame}
         currentGameType={currentGameType}
-        score={score}
+        scores={scores}
       />
       {rules.map((rule, index) => (
         <Appear key={index} fid={index}>

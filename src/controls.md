@@ -1,6 +1,6 @@
 // Score
-A = +1 score team 1
-P = +1 score team 2
+A = +score team 1
+P = +score team 2
 Q = -1 score team 1
 M = -1 score team 2
 

@@ -5,12 +5,12 @@ import { imgMapping } from '../tools/imgMapping'
 import dwarf from '../assets/img/dwarf.png'
 import reindeer from '../assets/img/reindeer.png'
 
-const headerCreator = ({ currentGame, currentGameType, score }) => (
+const headerCreator = ({ currentGame, currentGameType, scores }) => (
   <StyledHeaderContainer>
     <StyledContainerTeamOne>
       <StyledImageTeam src={dwarf}/>
       <StyledCurrentScore>
-        {score.team_1}
+        {String(scores[0].count)}
       </StyledCurrentScore>
     </StyledContainerTeamOne>
     
@@ -18,7 +18,7 @@ const headerCreator = ({ currentGame, currentGameType, score }) => (
 
     <StyledContainerTeamTwo>
       <StyledCurrentScore>
-        {score.team_2}
+        {scores[1].count}
       </StyledCurrentScore>
       <StyledImageTeam src={reindeer}/>
     </StyledContainerTeamTwo>

@@ -3,14 +3,14 @@ import styled from 'react-emotion'
 import { Appear, Heading, Text, Slide } from 'spectacle'
 import Header from '../../components/header'
 
-const multiplesCreator = ({ question, choices, fstep, currentGame, currentGameType, score }) => (
+const multiplesCreator = ({ question, choices, fstep, currentGame, currentGameType, scores }) => (
   <Slide 
     transition={["fade"]} 
     bgColor="green20"
     padding="0px" 
     align="center top" 
     onActive={fstep}>
-    <Header currentGame={currentGame} currentGameType={currentGameType} score={score}/>
+    <Header currentGame={currentGame} currentGameType={currentGameType} scores={scores}/>
     <StyledQuestion textColor="white">
       {question}
     </StyledQuestion>

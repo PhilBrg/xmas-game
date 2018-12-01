@@ -52,7 +52,7 @@ class Presentation extends React.Component {
       xmas: XmasGame,
     }
 
-    store.subscribe(() => this.setState({ score: store.getState().score, step: store.getState().step }))
+    store.subscribe(() => this.setState({ scores: store.getState().scores, step: store.getState().step }))
   }
 
   componentDidMount() {
@@ -60,6 +60,16 @@ class Presentation extends React.Component {
   }
 
   onKeyDown = (e) => {
+    switch (e.which) {
+      // Z
+      case 90:
+        console.log('Z key triggered')
+        break;
+      // E
+      case 69:
+        console.log('E key triggered')
+        break;
+    }
     if (this.props.step.currentGame) {
       const currentGame = this.state.games.find(game => game.__typename === this.props.step.currentGame)
       const score = currentGame.score
@@ -67,48 +77,24 @@ class Presentation extends React.Component {
       switch (e.which) {
         // 'A'
         case 65:
-          this.props.ScoreTeam1({score})
+          this.props.ScoreTeam({ id: '1', score })
           break
         // 'Q'
         case 81:
-          this.props.UnScoreTeam1()
+          this.props.UnScoreTeam({ id: '1' })
           break
         // 'P'
         case 80:
-          this.props.ScoreTeam2({score})
+          this.props.ScoreTeam({ id: '2', score })
           break
         // 'M'
         case 77:
-          this.props.UnScoreTeam2()
+          this.props.UnScoreTeam({ id: '2' })
           break
         default:
           return null
       }
     }
-  }
-
-  updateGameStep = (index) => {
-    this.props.updateGameStep({index})
-  }
-
-  updateCurrentGameName = (game) => {
-    this.props.updateCurrentGameName({game})
-  }
-
-  ScoreTeam1 = (score) => {
-    this.props.ScoreTeam1(score)
-  }
-
-  ScoreTeam2 = (score) => {
-    this.props.ScoreTeam2(score)
-  }
-
-  UnScoreTeam1 = () => {
-    this.props.UnScoreTeam1()
-  }
-
-  UnScoreTeam2 = () => {
-    this.props.UnScoreTeam2()
   }
 
   renderGame() {
@@ -121,18 +107,18 @@ class Presentation extends React.Component {
                           currentGameType: this.props.step.currentGame,
                           fname: () => this.props.updateCurrentGameName({game}),
                           rules: game.rules,
-                          score: this.props.score
+                          scores: this.props.scores
                         })
                   )
       return game.questions.map((question, index) => {
-        if (question.multiple === true) {
+        if (question.multiple) {
           slides.push(Multiples({
                                   question: question.name,
                                   choices: question.choices,
                                   fstep: () => this.props.updateGameStep({index}),
                                   currentGame: this.props.step.currentGameName,
                                   currentGameType: this.props.step.currentGame,
-                                  score: this.props.score
+                                  scores: this.props.scores
                                 })
                       )
         } else {
@@ -141,7 +127,7 @@ class Presentation extends React.Component {
                               fstep: () => this.props.updateGameStep({index}),
                               currentGame: this.props.step.currentGameName,
                               currentGameType: this.props.step.currentGame,
-                              score: this.props.score
+                              scores: this.props.scores
                             })
                       )
         }
@@ -149,7 +135,7 @@ class Presentation extends React.Component {
           answer: question.answer,
           currentGame: this.props.step.currentGameName,
           currentGameType: this.props.step.currentGame,
-          score: this.props.score
+          scores: this.props.scores
         })
   )
       })
@@ -178,17 +164,15 @@ class Presentation extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  score: state.xmas.score,
+  scores: state.xmas.scores,
   step: state.xmas.step,
 })
 
 const mapDispatchToProps = dispatch => ({
   updateGameStep: (index) => dispatch(gameActions.updateGameStep(index)),
   updateCurrentGameName: (game) => dispatch(gameActions.updateGameName(game)),
-  ScoreTeam1: (score) => dispatch(gameActions.scoreTeam1(score)),
-  ScoreTeam2: (score) => dispatch(gameActions.scoreTeam2(score)),
-  UnScoreTeam1: () => dispatch(gameActions.unScoreTeam1()),
-  UnScoreTeam2: () => dispatch(gameActions.unScoreTeam2()),
+  ScoreTeam: (id, score) => dispatch(gameActions.scoreTeam(id, score)),
+  UnScoreTeam: (id) => dispatch(gameActions.unScoreTeam(id)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Presentation)

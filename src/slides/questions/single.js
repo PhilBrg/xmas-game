@@ -4,7 +4,7 @@ import { Text, Slide } from "spectacle";
 import Header from '../../components/header'
 
 
-const singleCreator = ({ question, fstep, currentGame, currentGameType, score }) => (
+const singleCreator = ({ question, fstep, currentGame, currentGameType, scores }) => (
   <Slide 
     transition={["fade"]} 
     bgColor="green20" 
@@ -15,7 +15,7 @@ const singleCreator = ({ question, fstep, currentGame, currentGameType, score })
     <Header 
       currentGame={currentGame} 
       currentGameType={currentGameType} 
-      score={score}
+      scores={scores}
     />
     <StyledQuestion>
       {question}
