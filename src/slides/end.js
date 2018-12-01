@@ -4,7 +4,7 @@ import end from '../assets/img/end_screen.png'
 
 const endCreator = () => (
     <Slide transition={['fade']} bgImage={end}>
-  </Slide>
+    </Slide>
 );
 
 export default endCreator
