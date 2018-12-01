@@ -18,9 +18,9 @@ import { Deck } from 'spectacle'
 import createTheme from 'spectacle/lib/themes/default'
 
 // assets
-import eddy_malou from './assets/sound/eddy-malou.mp3'
-import inception from './assets/sound/inception.mp3'
-import navi from './assets/sound/navi.wav'
+// import eddy_malou from './assets/sound/eddy-malou.mp3'
+// import inception from './assets/sound/inception.mp3'
+// import navi from './assets/sound/navi.wav'
 
 
 // Require CSS
@@ -158,7 +158,7 @@ class Presentation extends React.Component {
   }
 
   render() {
-    const { title, created_by, games } = this.state.xmas
+    const { games } = this.state.xmas
 
     return (
       <Deck
@@ -167,7 +167,7 @@ class Presentation extends React.Component {
         theme={theme}
         ref={this.deck}
       >
-        {Intro({ title: title, created_by: created_by })}
+        {Intro()}
         {Menu({ games: games })}
         {this.renderGame()}
         {End()}

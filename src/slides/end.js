@@ -1,12 +1,10 @@
 import React from "react";
-import { Slide, Text } from "spectacle";
+import { Slide } from "spectacle";
+import end from '../assets/img/end_screen.png'
 
 const endCreator = () => (
-    <Slide transition={["zoom"]} bgColor="black">
-          <Text margin="10px 0 0" textColor="white" size={1} fit bold>
-          FIN
-          </Text>
-      </Slide>
+    <Slide transition={['fade']} bgImage={end}>
+  </Slide>
 );
 
 export default endCreator
