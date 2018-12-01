@@ -118,14 +118,13 @@ class Presentation extends React.Component {
   }
 
   renderGame() {
-    const games = this.state.games
     const slides = []
 
-    games.map((game, index) => {
+    this.state.games.map((game, index) => {
       if (game.__typename === 'turkey_of_the_dead') {
         return;
       }
-      
+
       slides.push(Rules({
                           currentGame: this.props.step.currentGameName,
                           currentGameType: this.props.step.currentGame,
