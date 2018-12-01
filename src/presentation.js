@@ -1,4 +1,4 @@
-import { XmasGameIpsum } from './assets/data/xmasIpsum'
+import { XmasGame } from './assets/data/xmas'
 
 // import slides
 import Answer from './slides/answers/answer'
@@ -48,8 +48,8 @@ class Presentation extends React.Component {
     super()
 
     this.state = {
-      games: XmasGameIpsum.games.filter(game => game.weight > -1),
-      xmas: XmasGameIpsum,
+      games: XmasGame.games.filter(game => game.weight > -1),
+      xmas: XmasGame,
     }
 
     store.subscribe(() => this.setState({ score: store.getState().score, step: store.getState().step }))

@@ -31,7 +31,6 @@ const StyledHeaderContainer = styled('div')`
   justify-content: space-between;
   width: 100%;
   height: 150px;
-  margin-bottom: 180px;
   top:0;
 `
 

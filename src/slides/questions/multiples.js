@@ -7,6 +7,8 @@ const multiplesCreator = ({ question, choices, fstep, currentGame, currentGameTy
   <Slide 
     transition={["fade"]} 
     bgColor="green20"
+    padding="0px" 
+    align="center top" 
     onActive={fstep}>
     <Header currentGame={currentGame} currentGameType={currentGameType} score={score}/>
     <StyledQuestion textColor="white">
@@ -24,13 +26,12 @@ const multiplesCreator = ({ question, choices, fstep, currentGame, currentGameTy
 )
 
 const StyledQuestion = styled(Heading)`
-  font-size: 33px;
-  position: absolute;
-  top: 30%;
+  font-size: 40px;
+  margin-bottom: 20px;
 `
 
 const StyledText = styled(Text)`
-  font-size: 50px;
+  font-size: 35px;
   color: #0c7D21;
   padding-bottom: 20px;
 `

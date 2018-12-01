@@ -8,6 +8,7 @@ const rulesCreator = ({ currentGame, currentGameType, fname, rules, score }) => 
       transition={["fade"]} 
       bgColor="green40" 
       align="center top" 
+      margin-bottom="0px"
       onActive={fname}
     >
       <Header 
