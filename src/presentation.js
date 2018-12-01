@@ -8,6 +8,7 @@ import Rules from './slides/rules'
 import Intro from './slides/intro'
 import End from './slides/end'
 import Menu from './slides/menu'
+import EndGame from './slides/endGame'
 
 import { gameActions } from './redux/actions'
 import store from './redux/store'
@@ -64,11 +65,13 @@ class Presentation extends React.Component {
       // Z
       case 90:
         console.log('Z key triggered')
-        break;
+        break
       // E
       case 69:
         console.log('E key triggered')
-        break;
+        break
+      default:
+        return null
     }
     if (this.props.step.currentGame) {
       const currentGame = this.state.games.find(game => game.__typename === this.props.step.currentGame)
@@ -97,11 +100,32 @@ class Presentation extends React.Component {
     }
   }
 
+  renderEndGame() {
+    const game = this.state.games.find(game => game.__typename === 'turkey_of_the_dead')
+    const slides = []
+
+    slides.push(Rules({
+                        currentGame: this.props.step.currentGameName,
+                        currentGameType: this.props.step.currentGame,
+                        fname: () => this.props.updateCurrentGameName({game}),
+                        rules: game.rules,
+                        scores: this.props.scores
+                      })
+                )
+    slides.push(EndGame())
+
+    return (slides);
+  }
+
   renderGame() {
     const games = this.state.games
     const slides = []
 
-    games.map((game) => {
+    games.map((game, index) => {
+      if (game.__typename === 'turkey_of_the_dead') {
+        return;
+      }
+      
       slides.push(Rules({
                           currentGame: this.props.step.currentGameName,
                           currentGameType: this.props.step.currentGame,
@@ -156,6 +180,7 @@ class Presentation extends React.Component {
         {Intro()}
         {Menu({ games: games })}
         {this.renderGame()}
+        {this.renderEndGame()}
         {End()}
 
       </Deck>
