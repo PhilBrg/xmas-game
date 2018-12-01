@@ -31,7 +31,7 @@ const updateCurrentGameName = (state, { payload }) => ({
   }
 })
 
-const updateScoreTeam1 = (state, { payload }) => ({
+const ScoreTeam1 = (state, { payload }) => ({
   ...state,
   score: {
     ...state.score,
@@ -39,11 +39,27 @@ const updateScoreTeam1 = (state, { payload }) => ({
   }
 })
 
-const updateScoreTeam2 = (state, { payload }) => ({
+const ScoreTeam2 = (state, { payload }) => ({
   ...state,
   score: {
     ...state.score,
     team_2: state.score.team_2 + payload.score,
+  }
+})
+
+const UnScoreTeam1 = (state) => ({
+  ...state,
+  score: {
+    ...state.score,
+    team_1: state.score.team_1 - 1,
+  }
+})
+
+const UnScoreTeam2 = (state) => ({
+  ...state,
+  score: {
+    ...state.score,
+    team_2: state.score.team_2 - 1,
   }
 })
 
@@ -52,8 +68,10 @@ const updateScoreTeam2 = (state, { payload }) => ({
 const reducer = {
   [types.UPDATE_GAME_STEP]: updateGameStep,
   [types.UPDATE_CURRENT_GAME_NAME]: updateCurrentGameName,
-  [types.UPDATE_SCORE_TEAM_1]: updateScoreTeam1,
-  [types.UPDATE_SCORE_TEAM_2]: updateScoreTeam2
+  [types.SCORE_TEAM_1]: ScoreTeam1,
+  [types.SCORE_TEAM_2]: ScoreTeam2,
+  [types.UNSCORE_TEAM_1]: UnScoreTeam1,
+  [types.UNSCORE_TEAM_2]: UnScoreTeam2
 }
 
 export default handleActions(reducer, initialState)

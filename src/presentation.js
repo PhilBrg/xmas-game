@@ -63,15 +63,26 @@ class Presentation extends React.Component {
     if (this.props.step.currentGame) {
       const currentGame = this.state.games.find(game => game.__typename === this.props.step.currentGame)
       const score = currentGame.score
+
       switch (e.which) {
-        case 81:
-          this.props.updateScoreTeam1({score})
+        // 'A'
+        case 65:
+          this.props.ScoreTeam1({score})
           break
+        // 'Q'
+        case 81:
+          this.props.UnScoreTeam1()
+          break
+        // 'P'
+        case 80:
+          this.props.ScoreTeam2({score})
+          break
+        // 'M'
         case 77:
-          this.props.updateScoreTeam2({score})
+          this.props.UnScoreTeam2()
           break
         default:
-          null
+          return null
       }
     }
   }
@@ -84,12 +95,20 @@ class Presentation extends React.Component {
     this.props.updateCurrentGameName({game})
   }
 
-  updateScoreTeam1 = (score) => {
-    this.props.updateScoreTeam1(score)
+  ScoreTeam1 = (score) => {
+    this.props.ScoreTeam1(score)
   }
 
-  updateScoreTeam2 = (score) => {
-    this.props.updateScoreTeam2(score)
+  ScoreTeam2 = (score) => {
+    this.props.ScoreTeam2(score)
+  }
+
+  UnScoreTeam1 = () => {
+    this.props.UnScoreTeam1()
+  }
+
+  UnScoreTeam2 = () => {
+    this.props.UnScoreTeam2()
   }
 
   renderGame() {
@@ -97,7 +116,6 @@ class Presentation extends React.Component {
     const slides = []
 
     games.map((game) => {
-      console.log('Step', this.props.step)
       slides.push(Rules({
                           currentGame: this.props.step.currentGameName,
                           currentGameType: this.props.step.currentGame,
@@ -117,13 +135,6 @@ class Presentation extends React.Component {
                                   score: this.props.score
                                 })
                       )
-          slides.push(Answer({
-                              answer: question.answer,
-                              currentGame: this.props.step.currentGameName,
-                              currentGameType: this.props.step.currentGame,
-                              score: this.props.score
-                            })
-                      )
         } else {
           slides.push(Single({
                               question: question.name,
@@ -133,15 +144,14 @@ class Presentation extends React.Component {
                               score: this.props.score
                             })
                       )
-          slides.push(Answer({
-                              answer: question.answer,
-                              currentGame: this.props.step.currentGameName,
-                              currentGameType: this.props.step.currentGame,
-                              score: this.props.score
-                            })
-                      )
         }
-        return
+        return slides.push(Answer({
+          answer: question.answer,
+          currentGame: this.props.step.currentGameName,
+          currentGameType: this.props.step.currentGame,
+          score: this.props.score
+        })
+  )
       })
     })
     return (slides)
@@ -175,8 +185,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   updateGameStep: (index) => dispatch(gameActions.updateGameStep(index)),
   updateCurrentGameName: (game) => dispatch(gameActions.updateGameName(game)),
-  updateScoreTeam1: (score) => dispatch(gameActions.scoreTeam1(score)),
-  updateScoreTeam2: (score) => dispatch(gameActions.scoreTeam2(score)),
+  ScoreTeam1: (score) => dispatch(gameActions.scoreTeam1(score)),
+  ScoreTeam2: (score) => dispatch(gameActions.scoreTeam2(score)),
+  UnScoreTeam1: () => dispatch(gameActions.unScoreTeam1()),
+  UnScoreTeam2: () => dispatch(gameActions.unScoreTeam2()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Presentation)
