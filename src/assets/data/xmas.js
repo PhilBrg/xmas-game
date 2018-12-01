@@ -3,7 +3,7 @@ export const XmasGame = {
   "created_by": "Philippe B",
   "games": [
       {
-        "name": "Le toste",
+        "name": "Le toaste",
         "__typename": "questions",
         "rules": ["5 questions par équipe", "1 point par réponse juste"],
         "buzzer": false,
