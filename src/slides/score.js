@@ -1,10 +1,10 @@
-// import React from 'react'
-// import imgMapping from '../tools/imgMapping'
-// import { Slide } from 'spectacle'
+import React from 'react'
+import imgMapping from '../tools/imgMapping'
+import { Slide } from 'spectacle'
 
-// const endGameCreator = () => (
-//   <Slide transition={['fade']} bgImage={turkeyScreen}>
-//   </Slide>
-// )
+const scoreCreator = ({ currentGameType, scores }) => (
+  <Slide transition={['fade']} bgImage={imgMapping[currentGameType]}>
+  </Slide>
+)
 
-// export default endGameCreator
+export default scoreCreator

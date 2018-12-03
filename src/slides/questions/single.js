@@ -26,6 +26,7 @@ const singleCreator = ({ question, fstep, currentGame, currentGameType, scores }
 const StyledQuestion = styled(Text)`
   color: #0c7D21;
   font-size: 50px;
+  margin-top: 125px;
 `
 
 export default singleCreator

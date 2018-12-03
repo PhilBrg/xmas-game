@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'react-emotion'
 import { Text, Image } from 'spectacle'
-import { imgMapping } from '../tools/imgMapping'
+import imgMapping from '../tools/imgMapping'
 import dwarf from '../assets/img/dwarf.png'
 import reindeer from '../assets/img/reindeer.png'
 

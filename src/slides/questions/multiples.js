@@ -27,13 +27,13 @@ const multiplesCreator = ({ question, choices, fstep, currentGame, currentGameTy
 
 const StyledQuestion = styled(Heading)`
   font-size: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 `
 
 const StyledText = styled(Text)`
   font-size: 35px;
   color: #0c7D21;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 `
 
 

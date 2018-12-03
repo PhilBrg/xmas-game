@@ -24,6 +24,7 @@ const answerCreator = ({ answer, currentGame, currentGameType, scores }) => (
 const StyledAnswer = styled(Text)`
   color: #0c7D21;
   font-size: 50px;
+  margin-top: 125px;
 `
 
 export default answerCreator

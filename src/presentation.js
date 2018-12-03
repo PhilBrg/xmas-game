@@ -9,6 +9,7 @@ import Intro from './slides/intro'
 import End from './slides/end'
 import Menu from './slides/menu'
 import EndGame from './slides/endGame'
+import Score from './slides/score'
 
 import { gameActions } from './redux/actions'
 import store from './redux/store'
@@ -70,8 +71,6 @@ class Presentation extends React.Component {
       case 69:
         console.log('E key triggered')
         break
-      default:
-        return null
     }
     if (this.props.step.currentGame) {
       const currentGame = this.state.games.find(game => game.__typename === this.props.step.currentGame)
@@ -133,7 +132,7 @@ class Presentation extends React.Component {
                           scores: this.props.scores
                         })
                   )
-      return game.questions.map((question, index) => {
+      game.questions.map((question, index) => {
         if (question.multiple) {
           slides.push(Multiples({
                                   question: question.name,
@@ -162,6 +161,12 @@ class Presentation extends React.Component {
         })
   )
       })
+      console.log('screen: ', `screen${this.props.step.currentGame}`)
+      return slides.push(Score({
+                            currentGameType: `screen${this.props.step.currentGame}`,
+                            scores: this.props.scores
+                        })
+                  )
     })
     return (slides)
   }
