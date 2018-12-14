@@ -8,6 +8,7 @@ import Rules from './slides/rules'
 import Intro from './slides/intro'
 import End from './slides/end'
 import Menu from './slides/menu'
+import Team from './slides/team'
 import EndGame from './slides/endGame'
 import Score from './slides/score'
 
@@ -51,6 +52,7 @@ class Presentation extends React.Component {
 
     this.state = {
       games: XmasGame.games.filter(game => game.weight > -1),
+      teams: XmasGame.teams,
       xmas: XmasGame,
     }
 
@@ -172,7 +174,7 @@ class Presentation extends React.Component {
   }
 
   render() {
-    const { games } = this.state.xmas
+    const { games, teams } = this.state.xmas
 
     return (
       <Deck
@@ -182,6 +184,7 @@ class Presentation extends React.Component {
         ref={this.deck}
       >
         {Intro()}
+        {Team({ teams: teams})}
         {Menu({ games: games })}
         {this.renderGame()}
         {this.renderEndGame()}

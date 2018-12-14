@@ -1,6 +1,20 @@
 export const XmasGame = {
   "title": "Xmas quizz",
   "created_by": "Philippe B",
+  "teams": [[
+    "Kévin",
+    "Fanti",
+    "Arnold",
+    "Eugénie",
+    "Marie"
+  ],
+  [
+    "Hugo",
+    "Max",
+    "Matthieu",
+    "Manon",
+    "Marylou"
+  ]],
   "games": [
       {
         "name": "Le toaste",
@@ -10,16 +24,6 @@ export const XmasGame = {
         "weight": 100,
         "score": 1,
         "questions": [
-          {
-            "name": "Citez moi un autre terme pour définir Noël",
-            "multiple": false,
-            "answer": "Nativité"
-          },
-          {
-            "name": "Qui est l'auteur original de cette chanson?",
-            "multiple": false,
-            "answer": "Tino Rossi"
-          },
           {
             "name": "Quel film batman se déroule pendant la période de Noel",
             "multiple": true,
@@ -34,8 +38,9 @@ export const XmasGame = {
           {
             "name": "Dans la course au jouet quel jouet doit recuperer arnold scharzeneger",
             "multiple": true,
+            "image": "toy",
             "choices": [
-              "Musul Man",
+              "Rocket Man",
               "Rapido Man",
               "Turbo Man",
               "Method Man"
@@ -59,49 +64,93 @@ export const XmasGame = {
             "answer": "Dom perignon",
           },
           {
-            "name": "Laquelle de ces images ne provient pas d'un film pour enfant",
+            "name": "Lequel de ces films un peu olé-olé (et je parle pas de corrida) n'existe pas",
             "multiple": true,
+            "image": "tree",
             "choices": [
-              "[TODO]",
-              "[TODO]",
-              "[TODO]",
-              "[TODO]"
+              "Qui veut la bite de roger rapeau",
+              "Le silence des anus",
+              "Couche moi sur le sable et fais jaillir ton petrole",
+              "Carry Potter et la croupe de feu"
             ],
-            "answer": "[TODO]",
+            "answer": "Le silence des anus",
           },
           {
-            "name": "De quel pays provient cette oeuvre representant un arbre de Noël",
+            "name": "La dinde est souvent de sortie pendant les fêtes de Noël, mais on peut également y trouver du chapon, qu'est-ce donc ?",
             "multiple": true,
-            "img_url": "[TODO]",
             "choices": [
-              "Angleterre",
-              "Tunisie",
-              "Danemark",
-              "Republique Démocratique du Congo"
+              "Une race de dindon",
+              "Un coquelet breton",
+              "Un coq castré",
+              "Une poule cisgenre"
             ],
-            "answer": "Angleterre",
+            "answer": "Un coq castré",
           },
           {
-            "name": "Lorsqu'un couple a du mal a avoir un enfant, on peut leur proposer la fécondation",
+            "name": "De quel région du monde la dinde est-elle originaire?",
             "multiple": true,
             "choices": [
-              "In sinus",
-              "In anus",
-              "In vitro",
-              "In extremis"
+              "Inde: Les colons anglais l'importent en angleterre, puis en europe",
+              "Amérique: Christophe Colomb rpz",
+              "Europe: Ils sont la depuis le début",
+              "Magrheb: Sait-on jamais"
             ],
-            "answer": "In vitro",
+            "answer": "Amérique: Christophe Colomb rpz",
           },
           {
-            "name": "Comment dit-on bonjour en japonais",
+            "name": "Que signifie à l'origine Espagne",
             "multiple": true,
             "choices": [
-              "Imatoumi",
-              "Konichiwa",
-              "Arigato",
-              "Bismilah"
+              "Terre des Taureaux",
+              "Terre des Lapins",
+              "Terre des Espagnols",
+              "Terre entre la mere, le Portugal et la France"
             ],
-            "answer": "Konichiwa",
+            "answer": "Terre des Lapins",
+          },
+          {
+            "name": "Avec quelle sauce la dinde est-elle servie au Mexique ?",
+            "multiple": true,
+            "choices": [
+              "Sauce BBQ",
+              "Sauce Madère",
+              "Sauce au chocolat",
+              "Sauce O'tacos 3 viandes/fromagère avec samourai chef"
+            ],
+            "answer": "Sauce au chocolat",
+          },
+          {
+            "name": "En angleterre on echappe pas au chrismas pudding, quel est sa particularité?",
+            "multiple": true,
+            "choices": [
+              "On commence a le preparer plusieurs jours/semaines avant Noël",
+              "C'est le déssert préféré de la reine Elisabeth",
+              "Il est parfumé au cherry-coco",
+              "Il est bourré comme tonton Gilbert"
+            ],
+            "answer": "On commence a le preparer plusieurs jours/semaines avant Noël",
+          },
+          {
+            "name": "Les guêpes de mer sont?",
+            "multiple": true,
+            "choices": [
+              "Des poissons venimeux",
+              "Des méduses venimeuses",
+              "Des abeilles venimeuses",
+              "Des guêpes mais jetées à la mer, simplement"
+            ],
+            "answer": "Des méduses venimeuses",
+          },
+          {
+            "name": "Quelle était la monnaie de la presipauté avant le passage à l'eugro",
+            "multiple": true,
+            "choices": [
+              "Argent de chez nous (ACN)",
+              "Les grozoufs",
+              "Les brouzoufs grolandais",
+              "Le Franzoufs"
+            ],
+            "answer": "Argent de chez nous (ACN)",
           },
         ]
       },
@@ -180,82 +229,15 @@ export const XmasGame = {
         "buzzer": false,
         "questions": [
           {
-            "name": "Combien de film de Tim Burton pouvez-vous me citer ?",
+            "name": "Combien de film de  pouvez-vous me citer ?",
             "multiple": false,
             "answer:": ""
           },
           {
-            "name": "Combien de musique de Noël pouvez-vous me citer ?",
+            "name": "Parmis les especes de crevettes existantes combien pouvez-vous m'en citer?",
             "multiple": false,
             "answer": ""
           }
-        ]
-      },
-      {
-        "name": "L'addition",
-        "__typename": "bill",
-        "rules": [
-          "2 points / bonne réponse, points à l'équipe adverse en cas de mauvaise réponse",
-        ],
-        "weight": 10,
-        "score": 1,
-        "buzzer": true,
-        "questions": [
-          {
-            "name": "La dinde est souvent de sortie pendant les fêtes de Noël, mais on peut également y trouver du chapon, qu'est-ce donc ?",
-            "multiple": true,
-            "choices": [
-              "Une race de dindon",
-              "Un coquelet breton",
-              "Un coq castré",
-              "Une poule cisgenre"
-            ],
-            "answer": "Un coq castré",
-          },
-          {
-            "name": "De quel région du monde la dinde est-elle originaire?",
-            "multiple": true,
-            "choices": [
-              "Inde: Les colons anglais l'importent en angleterre, puis en europe",
-              "Amérique: Christophe Colomb rpz",
-              "Europe: Ils sont la depuis le début",
-              "DES ARABES"
-            ],
-            "answer": "Amérique: Christophe Colomb rpz",
-          },
-          {
-            "name": "Avant les boules de Noël, avec quoi décorait-on le sapin ?",
-            "multiple": true,
-            "choices": [
-              "Biscuits",
-              "Fruits",
-              "Boules de Geisha",
-              "Chocolats"
-            ],
-            "answer": "Fruits",
-          },
-          {
-            "name": "Avec quelle sauce la dinde est-elle servie au Mexique ?",
-            "multiple": true,
-            "choices": [
-              "Sauce BBQ",
-              "Sauce Madère",
-              "Sauce au chocolat",
-              "Sauce O'tacos 3 viandes/fromagère avec samourai chef"
-            ],
-            "answer": "Sauce au chocolat",
-          },
-          {
-            "name": "En angleterre on echappe pas au chrismas pudding, quel est sa particularité?",
-            "multiple": true,
-            "choices": [
-              "On commence a le preparer plusieurs jours/semaines avant Noël",
-              "C'est le déssert préféré de la reine",
-              "Il est parfumé au cherry",
-              "Il est bourré"
-            ],
-            "answer": "On commence a le preparer plusieurs jours/semaines avant Noël",
-          },
         ]
       },
       {
@@ -272,10 +254,22 @@ export const XmasGame = {
         "questions": [
           {
             "name": "toto",
-            "multiple": false,
+            "multiple": true,
+            "choices": [
+              "Quelle est la deuxieme syllabe du mot calculatrice",
+              "Vrai ou Faux, Athéna est la déesse des slips sales ?",
+              "Comment s'appelle Jean Claude Van Damme",
+              "Vrai ou Faux, Claire Chazal fait pousser du cannabis derrière les locaux de TF1",
+              "Qu'est ce qui est meilleur à manger: La barbapapa ou la Moustache à Maman",
+              "Dites moi le mot Kayak à l'envers",
+              "Dites moi le mot Epoustouflant à l'envers, si vous n'y arrivez pas dites moi kayak",
+
+            ],
             "answer": " au chocolat",
+            
           }
         ]
       }
     ]
 }
+
