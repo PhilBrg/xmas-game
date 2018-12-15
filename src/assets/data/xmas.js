@@ -218,7 +218,7 @@ export const XmasGame = {
         ]
       },
       {
-        "name": "Enchères",
+        "name": "Addition",
         "__typename": "bet",
         "score": 1,
         "weight": 90,
@@ -229,12 +229,12 @@ export const XmasGame = {
         "buzzer": false,
         "questions": [
           {
-            "name": "Combien de film de  pouvez-vous me citer ?",
+            "name": "Combien de film de Quentin Tarantino pouvez-vous me citer ? Il y en a 8",
             "multiple": false,
             "answer:": ""
           },
           {
-            "name": "Parmis les especes de crevettes existantes combien pouvez-vous m'en citer?",
+            "name": "Parmis les especes de crevettes existantes combien pouvez-vous m'en citer? Il y en a beaucoup",
             "multiple": false,
             "answer": ""
           }
@@ -246,7 +246,6 @@ export const XmasGame = {
         "rules": [
           "10 questions",
           "ne pas répondre avant la fin des 10 questions",
-          "Une souflette autorisé en cas de trou",
         ],
         "buzzer": false,
         "weight": 0,
@@ -256,14 +255,16 @@ export const XmasGame = {
             "name": "toto",
             "multiple": true,
             "choices": [
-              "Quelle est la deuxieme syllabe du mot calculatrice",
-              "Vrai ou Faux, Athéna est la déesse des slips sales ?",
-              "Comment s'appelle Jean Claude Van Damme",
-              "Vrai ou Faux, Claire Chazal fait pousser du cannabis derrière les locaux de TF1",
-              "Qu'est ce qui est meilleur à manger: La barbapapa ou la Moustache à Maman",
-              "Dites moi le mot Kayak à l'envers",
-              "Dites moi le mot Epoustouflant à l'envers, si vous n'y arrivez pas dites moi kayak",
-
+              "Quelle est la deuxieme syllabe du mot calculatrice ",
+              "Vrai ou Faux, Athéna est la déesse des slips sales ? ",
+              "Comment s'appelle Jean Claude Van Damme ",
+              "Vrai ou Faux, Claire Chazal fait pousser du cannabis derrière les locaux de TF1 ",
+              "Qu'est ce qui est meilleur à manger: La barbapapa ou la Moustache à Maman ",
+              "Dites moi le mot Kayak à l'envers ",
+              "Dites moi le mot Epoustouflant à l'envers, si vous n'y arrivez pas dites moi kayak ",
+              "De quel couleur est le cheval blanc d'Henri IV? ",
+              "Citez moi votre plat favori ",
+              "Et sinon ça vous a plu la soiréee ? "
             ],
             "answer": " au chocolat",
             

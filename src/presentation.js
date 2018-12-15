@@ -5,9 +5,11 @@ import Answer from './slides/answers/answer'
 import Multiples from './slides/questions/multiples'
 import Single from './slides/questions/single'
 import Rules from './slides/rules'
+import IntroVideo from './slides/introVideo'
 import Intro from './slides/intro'
 import End from './slides/end'
 import Menu from './slides/menu'
+import VidTurkey from './slides/vidTurkey'
 import Team from './slides/team'
 import EndGame from './slides/endGame'
 import Score from './slides/score'
@@ -105,6 +107,7 @@ class Presentation extends React.Component {
     const game = this.state.games.find(game => game.__typename === 'turkey_of_the_dead')
     const slides = []
 
+    slides.push(VidTurkey())
     slides.push(Rules({
                         currentGame: this.props.step.currentGameName,
                         currentGameType: this.props.step.currentGame,
@@ -113,7 +116,8 @@ class Presentation extends React.Component {
                         scores: this.props.scores
                       })
                 )
-    slides.push(EndGame())
+
+    slides.push(EndGame({ questions: game.questions}))
 
     return (slides);
   }
@@ -181,9 +185,11 @@ class Presentation extends React.Component {
         transition={['fade', 'slide']}
         transitionDuration={500}
         theme={theme}
+        progress={'none'}
         ref={this.deck}
       >
         {Intro()}
+        {IntroVideo()}
         {Team({ teams: teams})}
         {Menu({ games: games })}
         {this.renderGame()}

@@ -1,9 +1,13 @@
 import React from 'react'
-import turkeyScreen from '../assets/img/turkey_screen.png'
+import imgMapping from '../tools/imgMapping'
 import { Slide } from 'spectacle'
 
-const endGameCreator = () => (
-  <Slide transition={['fade']} bgImage={turkeyScreen}>
+const endGameCreator = ({ questions }) => (
+  <Slide
+    transition={['fade']}
+    bgImage={imgMapping['deadTurkeyScreen']}
+    notes={questions.map((question) => ` // ${question.choices} // `)}
+  >
   </Slide>
 )
 

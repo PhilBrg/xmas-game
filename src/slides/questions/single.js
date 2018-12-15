@@ -11,6 +11,7 @@ const singleCreator = ({ question, fstep, currentGame, currentGameType, scores }
     padding="0px" 
     align="center top" 
     onActive={fstep}
+    notes={question}
   >
     <Header 
       currentGame={currentGame} 

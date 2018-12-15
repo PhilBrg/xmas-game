@@ -9,7 +9,8 @@ const multiplesCreator = ({ question, choices, fstep, currentGame, currentGameTy
     bgColor="green20"
     padding="0px" 
     align="center top" 
-    onActive={fstep}>
+    onActive={fstep}
+    notes={`${question} //  ${choices.map(choice => `${choice} // `)}`}>
     <Header currentGame={currentGame} currentGameType={currentGameType} scores={scores}/>
     <StyledQuestion textColor="white">
       {question}

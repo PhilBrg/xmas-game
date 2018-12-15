@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'react-emotion'
 import imgMapping from '../tools/imgMapping'
-import { Slide, Heading, Text, Appear, Image } from 'spectacle'
+import { Slide, Text, Appear, Image } from 'spectacle'
 
 const teamCreator = ({ teams }) => (
     <Slide transition={['fade']} bgColor="red40">
@@ -49,14 +49,6 @@ const StyledImageTeam = styled(Image)`
   background-color: #74d680;
   border-radius: 50%;
   padding: 5px;
-`
-
-const StyledTeam = styled(Heading)`
-    font-size: 33px;
-    margin-bottom: 45px;
-    letter-spacing: 1px;
-    margin-right: ${props => props.right ? 60 : 0}px;
-    margin-left: ${props => props.left ? 90 : 0}px;
 `
 
 const StyledText = styled(Text)`
