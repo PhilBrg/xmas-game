@@ -69,11 +69,9 @@ class Presentation extends React.Component {
     switch (e.which) {
       // Z
       case 90:
-        console.log('Z key triggered')
         break
       // E
       case 69:
-        console.log('E key triggered')
         break
     }
     if (this.props.step.currentGame) {
@@ -167,7 +165,6 @@ class Presentation extends React.Component {
         })
   )
       })
-      console.log('screen: ', `screen${this.props.step.currentGame}`)
       return slides.push(Score({
                             currentGameType: `screen${this.props.step.currentGame}`,
                             scores: this.props.scores

@@ -4,7 +4,7 @@ import { Slide } from 'spectacle'
 
 const introVideoCreator = () => (
   <Slide transition={['fade']}>
-    {Video({src: 'intro'})}
+    {Video({src: 'intro', loop: false})}
   </Slide>
 )
 
